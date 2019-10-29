@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jxmapsdemo1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/demo/jxmapsdemo.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

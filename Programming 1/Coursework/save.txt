@@ -1,0 +1,84 @@
+Date: 2018-12-02
+Activated for: 168 hours
+Total cost for this time: 4.73
+
+Date: 2018-12-02
+Activated for: 168 hours
+Total cost for this time: 9.46
+
+Date: 2018-12-02
+Activated for: 7 hours
+Total cost for this time: 1.12
+
+Date: 2018-12-02
+Activated for: 168 hours
+Total cost for this time: 84.69
+
+Date: 2018-12-02
+Activated for: 0 hours
+Total cost for this time: 1.12
+
+Date: 2018-12-02
+Activated for: 168 hours
+Total cost for this time: 9.63
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 35.12
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 59.02
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 82.93
+
+Date: 2018-12-03
+Activated for: 3 hours
+Total cost for this time: 177.0
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 62.75
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 5.73
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 5.73
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 5.73
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 5.73
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 55.1
+
+Date: 2018-12-03
+Activated for: 8 hours
+Total cost for this time: 282.67
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 91.93
+
+Date: 2018-12-03
+Activated for: 168 hours
+Total cost for this time: 71.5
+
+Date: 2019-01-26
+Activated for: 168 hours
+Total cost for this time: 50.93
+
+Date: 2019-01-26
+Activated for: 4 hours
+Total cost for this time: 0.17
+

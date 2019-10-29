@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/src/main/java/comp1206/sushi/jxmaps/docs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/main/java/comp1206/sushi/jxmaps/demo/src" />
+      <root url="file://$PROJECT_DIR$/src/main/java/comp1206/sushi/jxmaps/examples" />
+    </SOURCES>
+  </library>
+</component>

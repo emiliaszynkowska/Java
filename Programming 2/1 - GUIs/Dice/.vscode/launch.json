@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DieFrame",
+            "request": "launch",
+            "mainClass": "DieFrame",
+            "projectName": "T3 - Graphics_2c21afb2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PaintCallExample",
+            "request": "launch",
+            "mainClass": "PaintCallExample",
+            "projectName": "T3 - Graphics_2c21afb2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleSubmitCancelForm",
+            "request": "launch",
+            "mainClass": "SimpleSubmitCancelForm",
+            "projectName": "T3 - Graphics_2c21afb2"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}

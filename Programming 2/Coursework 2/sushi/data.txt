@@ -1,0 +1,33 @@
+RESTAURANT:Restaurant:SO17 1BJ
+POSTCODE:SO17 1BJ
+POSTCODE:SO17 1TJ
+POSTCODE:SO17 2NJ
+POSTCODE:SO17 1TW
+POSTCODE:SO17 2LB
+SUPPLIER:Sushi Supplies:SO17 1BX
+SUPPLIER:Sushi R Us:SO17 2NJ
+SUPPLIER:Sushi For 4U:SO17 2LB
+INGREDIENT:Rice:Grams:Sushi Supplies:1000:5000:1
+INGREDIENT:Vinegar:Grams:Sushi Supplies:100:1000:5
+INGREDIENT:Salt:Grams:Sushi Supplies:50:100:1
+INGREDIENT:Avocado:Grams:Sushi R Us:5:10:10
+STOCK:Rice:5550
+STOCK:Vinegar:850
+STOCK:Salt:50
+STOCK:Avocado:5
+DISH:Sushi Roll:Rice and things:10:1:10:150 * Rice,1 * Avocado,10 * Salt,30 * Vinegar
+DISH:Side Rice:Side portion of rice:5:1:10:500 * Rice
+STOCK:Sushi Roll:5
+STOCK:Side Rice:2
+USER:Admin:password:University Road:SO17 1BJ
+USER:e:e:e:SO17 1BJ
+USER:p:u:u:SO17 1BJ
+STAFF:Chloe
+STAFF:Lucy
+DRONE:10
+DRONE:20
+ORDER:Admin:2 * Side Rice,5 * Sushi Roll
+ORDER:e:1 * Sushi Roll
+ORDER:e:1 * Sushi Roll
+ORDER:p:1 * Sushi Roll
+ORDER:p:1 * Sushi Roll

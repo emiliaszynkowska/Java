@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/jxmaps-linux32-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/jxmaps-win-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/license.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/jxmaps-linux64-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/jxmaps-mac-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sushi/src/main/java/comp1206/sushi/server/jxmaps/lib/jxmaps-1.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: junit:junit:3.8.1">
+    <archive path="C:/Users/Dell/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar" />
+  </library>
+  <library name="license" />
+  <library name="src" />
+</eclipse-userlibraries>
+
