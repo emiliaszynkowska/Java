@@ -7,7 +7,7 @@ public class Main {
         //DFSGraph dfsgraph = new DFSGraph();
         //BFS bfs = new BFS();
         //IDS ids = new IDS();
-        AStar astar = new AStar();
+        //AStar astar = new AStar();
     }
 
 }

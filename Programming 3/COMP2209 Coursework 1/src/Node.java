@@ -3,21 +3,19 @@ import java.util.ArrayList;
 public class Node implements Comparable<Node> {
 
     String value;
-    Integer distance;
+    Double distance;
     Node parent;
-    Boolean visited;
     ArrayList<String> stringChildren;
     ArrayList<Node> children;
     Integer[][] grid;
 
     public Node getParent() { return parent; }
-    public Integer getDistance() { return distance; }
-    public void setDistance(Integer distance) { this.distance = distance; }
+    public Double getDistance() { return distance; }
+    public void setDistance(Double distance) { this.distance = distance; }
 
     public Node(String value, Node parent) {
         this.value = value;
         this.parent = parent;
-        this.visited = false;
         stringChildren = new ArrayList<String>();
         children = new ArrayList<Node>();
     }

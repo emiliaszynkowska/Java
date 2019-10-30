@@ -16,12 +16,7 @@ public class BFS {
         checkReachedGoal(BFSTree.root);
         solve(BFSTree.root);
         while (!(queue.isEmpty())) {
-            if (queue.peek().visited != true) {
-                solve(queue.remove());
-            }
-            else {
-                queue.remove();
-            }
+            solve(queue.remove());
         }
     }
 
@@ -54,9 +49,7 @@ public class BFS {
                 newNode.setGrid(copyArray(game.grid));
                 //System.out.println(BFSTree.findPosition(newNode));
                 checkReachedGoal(newNode);
-                if (newNode.visited != true) {
-                    queue.add(newNode);
-                }
+                queue.add(newNode);
             }
         }
         if ((!current.stringChildren.contains("down"))) {
@@ -66,9 +59,7 @@ public class BFS {
                 newNode.setGrid(copyArray(game.grid));
                 //System.out.println(BFSTree.findPosition(newNode));
                 checkReachedGoal(newNode);
-                if (newNode.visited != true) {
-                    queue.add(newNode);
-                }
+                queue.add(newNode);
             }
         }
         if ((!current.stringChildren.contains("right"))) {
@@ -78,9 +69,7 @@ public class BFS {
                 newNode.setGrid(copyArray(game.grid));
                 //System.out.println(BFSTree.findPosition(newNode));
                 checkReachedGoal(newNode);
-                if (newNode.visited != true) {
-                    queue.add(newNode);
-                }
+                queue.add(newNode);
             }
         }
         if ((!current.stringChildren.contains("left"))) {
@@ -90,16 +79,11 @@ public class BFS {
                 newNode.setGrid(copyArray(game.grid));
                 //System.out.println(BFSTree.findPosition(newNode));
                 checkReachedGoal(newNode);
-                if (newNode.visited != true) {
-                    queue.add(newNode);
-                }
+                queue.add(newNode);
             }
         }
         else {
-            current.visited = true;
-            if (current.getParent().visited != true) {
-                queue.add(current.getParent());
-            }
+            queue.add(current.getParent());
         }
         return false;
     }
