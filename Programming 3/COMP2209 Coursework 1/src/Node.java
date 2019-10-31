@@ -7,7 +7,7 @@ public class Node implements Comparable<Node> {
     Node parent;
     ArrayList<String> stringChildren;
     ArrayList<Node> children;
-    Integer[][] grid;
+    String grid;
 
     public Node getParent() { return parent; }
     public Double getDistance() { return distance; }
@@ -20,10 +20,10 @@ public class Node implements Comparable<Node> {
         children = new ArrayList<Node>();
     }
 
-    public void setGrid(Integer[][] grid) {
+    public void setGrid(String grid) {
         this.grid = grid;
     }
-    public Integer[][] getGrid() {
+    public String getGrid() {
         return grid;
     }
 
