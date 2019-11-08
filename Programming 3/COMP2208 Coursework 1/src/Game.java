@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Game {
 
     int[][] grid;
@@ -18,10 +16,10 @@ public class Game {
     }
 
     public void printGrid() {
-//        for (int i=0; i<=3; i++) {
-//            System.out.println(Arrays.asList(grid[i]));
-//        }
-//        System.out.println();
+        for (int i=0; i<4; i++) {
+            System.out.println("|"+grid[i][0]+"|"+grid[i][1]+"|"+grid[i][2]+"|"+grid[i][3]+"|");
+        }
+        System.out.println();
     }
 
     public Boolean reachedGoal() {
@@ -48,7 +46,7 @@ public class Game {
         if ((y-1) >= 0) {
             grid[y][x] = grid[y-1][x];
             grid[y-1][x] = 4;
-            printGrid();
+            //printGrid();
             return true;
         }
         return false;
@@ -59,7 +57,7 @@ public class Game {
         if ((y+1) <= 3) {
             grid[y][x] = grid[y+1][x];
             grid[y+1][x] = 4;
-            printGrid();
+            //printGrid();
             return true;
         }
         return false;
@@ -70,7 +68,7 @@ public class Game {
         if ((x+1) <= 3) {
             grid[y][x] = grid[y][x+1];
             grid[y][x+1] = 4;
-            printGrid();
+            //printGrid();
             return true;
         }
         return false;
@@ -81,7 +79,7 @@ public class Game {
         if ((x-1) >= 0) {
             grid[y][x] = grid[y][x-1];
             grid[y][x-1] = 4;
-            printGrid();
+            //printGrid();
             return true;
         }
         return false;

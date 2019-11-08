@@ -11,12 +11,13 @@ public class DFS extends Search {
 
     public Boolean solve(Node current) {
         checkReachedGoal(current);
-        //System.out.println(DFSTree.findPosition(current));
+        System.out.println(tree.findPosition(current));
         if (!(current.stringChildren.contains("up"))) {
             game.set(decodeArray(game, current.getGrid()));
             if(game.up() == true) {
                 Node newNode = tree.addNode(current, "up");
                 newNode.setGrid(copyArray(game.grid));
+                counter ++;
                 solve(newNode);
             }
         }
@@ -25,6 +26,7 @@ public class DFS extends Search {
             if(game.down() == true) {
                 Node newNode = tree.addNode(current, "down");
                 newNode.setGrid(copyArray(game.grid));
+                counter ++;
                 solve(newNode);
             }
         }
@@ -33,6 +35,7 @@ public class DFS extends Search {
             if(game.right() == true) {
                 Node newNode = tree.addNode(current, "right");
                 newNode.setGrid(copyArray(game.grid));
+                counter ++;
                 solve(newNode);
             }
         }
@@ -41,6 +44,7 @@ public class DFS extends Search {
             if(game.left() == true) {
                 Node newNode = tree.addNode(current, "left");
                 newNode.setGrid(copyArray(game.grid));
+                counter ++;
                 solve(newNode);
             }
         }

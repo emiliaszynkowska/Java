@@ -5,17 +5,25 @@ public class Search {
 
     Game game;
     MyTree tree;
+    int counter;
+    boolean print;
 
     public Search() {
         game = new Game();
         tree = new MyTree();
+        counter = 0;
+        print = false;
         tree.root.setGrid(copyArray(game.grid));
     }
 
     public void checkReachedGoal(Node node) {
+        if (print == true) {
+            System.out.println(tree.findPosition(node));
+            game.printGrid();
+        }
         if (game.reachedGoal()) {
             System.out.println("Solution reached");
-            System.out.println(tree.findPosition(node));
+            System.out.println("Nodes explored: " + counter);
             System.exit(0);
         }
     }

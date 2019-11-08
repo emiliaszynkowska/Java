@@ -6,25 +6,37 @@ public class Main {
 
         System.out.println("Select search method: \n1 Breadth First Search \n2 Depth First Search \n3 Depth First Search 2 \n4 Iterative Deepening Search \n5 A* Search");
         Scanner scanner = new Scanner(System.in);
-        Integer input = scanner.nextInt();
-        if (input == 1) {
+        Integer input1 = scanner.nextInt();
+        System.out.println("Select mode: \n1 All results printed out (slower) \n2 Only solution printed out (faster)");
+        Integer input2 = scanner.nextInt();
+        if (input1 == 1) {
             BFS bfs = new BFS();
+            if (input2 == 1)
+                bfs.print = true;
             bfs.run();
         }
-        else if (input == 2) {
+        else if (input1 == 2) {
             DFS dfs = new DFS();
+            if (input2 == 1)
+                dfs.print = true;
             dfs.run();
         }
-        else if (input == 3) {
+        else if (input1 == 3) {
             DFS2 dfs2 = new DFS2();
+            if (input2 == 1)
+                dfs2.print = true;
             dfs2.run();
         }
-        else if (input == 4) {
+        else if (input1 == 4) {
             IDS ids = new IDS();
+            if (input2 == 1)
+                ids.print = true;
             ids.run();
         }
-        else if (input == 5) {
+        else if (input1 == 5) {
             AStar astar = new AStar();
+            if (input2 == 1)
+                astar.print = true;
             astar.run();
         }
         else {

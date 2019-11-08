@@ -19,7 +19,6 @@ public class BFS extends Search {
 
     public Boolean solve(Node current) {
         checkReachedGoal(current);
-        //System.out.println(BFSTree.findPosition(current));
         if (!(current.stringChildren.contains("up"))) {
             game.set(decodeArray(game, current.getGrid()));
             if(game.up() == true) {
@@ -27,7 +26,7 @@ public class BFS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 checkReachedGoal(newNode);
                 queue.add(newNode);
-                //System.out.println(BFSTree.findPosition(newNode));
+                counter ++;
             }
         }
         if ((!current.stringChildren.contains("down"))) {
@@ -37,7 +36,7 @@ public class BFS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 checkReachedGoal(newNode);
                 queue.add(newNode);
-                //System.out.println(BFSTree.findPosition(newNode));
+                counter ++;
             }
         }
         if ((!current.stringChildren.contains("right"))) {
@@ -47,7 +46,7 @@ public class BFS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 checkReachedGoal(newNode);
                 queue.add(newNode);
-                //System.out.println(BFSTree.findPosition(newNode));
+                counter ++;
             }
         }
         if ((!current.stringChildren.contains("left"))) {
@@ -57,7 +56,7 @@ public class BFS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 checkReachedGoal(newNode);
                 queue.add(newNode);
-                //System.out.println(BFSTree.findPosition(newNode));
+                counter ++;
             }
         }
         else {

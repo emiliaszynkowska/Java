@@ -23,26 +23,26 @@ public class DFS2 extends Search {
             if (!(current.stringChildren.contains("up")) && (game.up() == true)) {
                 Node newNode = tree.addNode(current, "up");
                 newNode.setGrid(copyArray(game.grid));
-                //System.out.println(DFSTree.findPosition(newNode));
                 stack.push(newNode);
+                counter ++;
             }
             else if ((!current.stringChildren.contains("down")) && (game.down() == true)) {
                 Node newNode = tree.addNode(current, "down");
                 newNode.setGrid(copyArray(game.grid));
-                //System.out.println(DFSTree.findPosition(newNode));
                 stack.push(newNode);
+                counter ++;
             }
             else if ((!current.stringChildren.contains("right")) && (game.right() == true)) {
                 Node newNode = tree.addNode(current, "right");
                 newNode.setGrid(copyArray(game.grid));
-                //System.out.println(DFSTree.findPosition(newNode));
                 stack.push(newNode);
+                counter ++;
             }
             else if ((!current.stringChildren.contains("left")) && (game.left() == true)) {
                 Node newNode = tree.addNode(current, "left");
                 newNode.setGrid(copyArray(game.grid));
-                //System.out.println(DFSTree.findPosition(newNode));
                 stack.push(newNode);
+                counter ++;
             }
             else {
                 stack.push(current.getParent());

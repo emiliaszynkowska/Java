@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b74e9d6-aeaa-4422-b839-d72f34f022f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/AStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/AStar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/BFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/DFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/DFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/DFSGraph.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/IDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/IDS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COMP2208 Intelligent Systems Coursework 1/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AStar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DFSGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DFS2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IDS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IDS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1Sw5SzUocAmpGIyA1cr3W1ilW1S" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="COMP2208 Intelligent Systems Coursework 1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b74e9d6-aeaa-4422-b839-d72f34f022f6" name="Default Changelist" comment="" />
+      <created>1572461822548</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572461822548</updated>
+      <workItem from="1572461825521" duration="10712000" />
+      <workItem from="1572475485943" duration="1859000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fixed A* Search!">
+      <created>1572463577337</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572463577337</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed A* Search!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed A* Search!" />
+  </component>
+</project>

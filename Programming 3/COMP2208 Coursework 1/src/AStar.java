@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class AStar extends Search {
 
@@ -35,39 +37,41 @@ public class AStar extends Search {
     public Boolean solve(Node current) {
         checkReachedGoal(current);
         game.set(decodeArray(game, current.getGrid()));
-        //System.out.println(ATree.findPosition(current));
         if (!(current.stringChildren.contains("up")) && (game.up() == true)) {
             Node newNode = tree.addNode(current,"up");
             newNode.setGrid(copyArray(game.grid));
             newNode.setDistance(tree.findPosition(newNode).size() + findEuclideanDistance());
+            checkReachedGoal(newNode);
             nodes.add(newNode);
             game.down();
+            counter ++;
         }
         if ((!current.stringChildren.contains("down")) && (game.down() == true)) {
             Node newNode = tree.addNode(current,"down");
             newNode.setGrid(copyArray(game.grid));
             newNode.setDistance(tree.findPosition(newNode).size() + findEuclideanDistance());
+            checkReachedGoal(newNode);
             nodes.add(newNode);
             game.up();
+            counter ++;
         }
         if ((!current.stringChildren.contains("right")) && (game.right() == true)) {
             Node newNode = tree.addNode(current,"right");
             newNode.setGrid(copyArray(game.grid));
             newNode.setDistance(tree.findPosition(newNode).size() + findEuclideanDistance());
+            checkReachedGoal(newNode);
             nodes.add(newNode);
             game.left();
+            counter ++;
         }
         if ((!current.stringChildren.contains("left")) && (game.left() == true)) {
             Node newNode = tree.addNode(current,"left");
             newNode.setGrid(copyArray(game.grid));
             newNode.setDistance(tree.findPosition(newNode).size() + findEuclideanDistance());
+            checkReachedGoal(newNode);
             nodes.add(newNode);
             game.right();
-        }
-        else {
-            try {
-                nodes.add(current.getParent());
-            } catch (NullPointerException n) {}
+            counter ++;
         }
         return false;
     }

@@ -36,27 +36,27 @@ public class IDS extends Search {
             game.set(decodeArray(game, current.getGrid()));
             if (!current.stringChildren.contains("up") && game.up() == true) {
                 Node newNode = tree.addNode(current, "up");
-                //System.out.println(DFSTree.findPosition(newNode));
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
+                counter ++;
             }
             else if (!current.stringChildren.contains("down") && game.down() == true) {
                 Node newNode = tree.addNode(current, "down");
-                //System.out.println(DFSTree.findPosition(newNode));
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
+                counter ++;
             }
             else if (!current.stringChildren.contains("right") && game.right() == true) {
                 Node newNode = tree.addNode(current, "right");
-                //System.out.println(DFSTree.findPosition(newNode));
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
+                counter ++;
             }
             else if (!current.stringChildren.contains("left") && game.left() == true) {
                 Node newNode = tree.addNode(current, "left");
-                //System.out.println(DFSTree.findPosition(newNode));
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
+                counter ++;
             }
             else {
                 if (current.getParent() != null)
