@@ -11,7 +11,7 @@ public class BFS extends Search {
     public void run() {
         System.out.println("Breadth First Search is running..");
         queue = new LinkedList<Node>();
-        solve(tree.root);
+        solve(tree.getRoot());
         while (!(queue.isEmpty())) {
             solve(queue.remove());
         }
@@ -19,14 +19,14 @@ public class BFS extends Search {
 
     public Boolean solve(Node current) {
         checkReachedGoal(current);
-        if (!(current.stringChildren.contains("up"))) {
-            game.set(decodeArray(game, current.getGrid()));
-            if(game.up() == true) {
-                Node newNode = tree.addNode(current, "up");
-                newNode.setGrid(copyArray(game.grid));
-                checkReachedGoal(newNode);
+        if (!(current.getStringChildren().contains("up"))) {
+            getGame().set(decodeArray(getGame(), current.getGrid()));
+            if(getGame().up() == true) {
+                Node newNode = getTree().addNode(current, "up");
+                newNode.setGrid(copyArray(getGame().grid));
                 queue.add(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
         }
         if ((!current.stringChildren.contains("down"))) {
@@ -34,9 +34,9 @@ public class BFS extends Search {
             if(game.down() == true) {
                 Node newNode = tree.addNode(current, "down");
                 newNode.setGrid(copyArray(game.grid));
-                checkReachedGoal(newNode);
                 queue.add(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
         }
         if ((!current.stringChildren.contains("right"))) {
@@ -44,9 +44,9 @@ public class BFS extends Search {
             if(game.right() == true) {
                 Node newNode = tree.addNode(current, "right");
                 newNode.setGrid(copyArray(game.grid));
-                checkReachedGoal(newNode);
                 queue.add(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
         }
         if ((!current.stringChildren.contains("left"))) {
@@ -54,9 +54,9 @@ public class BFS extends Search {
             if(game.left() == true) {
                 Node newNode = tree.addNode(current, "left");
                 newNode.setGrid(copyArray(game.grid));
-                checkReachedGoal(newNode);
                 queue.add(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
         }
         else {

@@ -19,7 +19,7 @@ public class IDS extends Search {
 
     public void iterate(int depth) {
         game = new Game();
-        tree = new MyTree();
+        tree = new Tree();
         tree.root.setGrid(copyArray(game.grid));
         stack = new Stack();
         solve(tree.root, depth);
@@ -39,24 +39,28 @@ public class IDS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
             else if (!current.stringChildren.contains("down") && game.down() == true) {
                 Node newNode = tree.addNode(current, "down");
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
             else if (!current.stringChildren.contains("right") && game.right() == true) {
                 Node newNode = tree.addNode(current, "right");
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
             else if (!current.stringChildren.contains("left") && game.left() == true) {
                 Node newNode = tree.addNode(current, "left");
                 newNode.setGrid(copyArray(game.grid));
                 stack.push(newNode);
                 counter ++;
+                checkReachedGoal(newNode);
             }
             else {
                 if (current.getParent() != null)

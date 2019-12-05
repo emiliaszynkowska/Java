@@ -5,12 +5,15 @@ public class Game {
     public Game() {
         grid = new int[][] {
                 {0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0},
-                {1, 2, 3, 4}
+                {0, 1, 0, 0},
+                {4, 0, 2, 0},
+                {0, 3, 0, 0}
         };
     }
 
+    public int[][] getGrid() {
+        return grid;
+    }
     public void set(int[][] newGrid) {
         grid = newGrid;
     }
@@ -29,8 +32,8 @@ public class Game {
     }
 
     public Integer getPos(int counter, Character axis) {
-        for (int i = 0; i <= 3; i++) {
-            for (int j = 0; j <= 3; j++) {
+        for (int i=0; i<4; i++) {
+            for (int j=0; j<4; j++) {
                 if (grid[i][j] == counter) {
                     if (axis == 'x')
                         return j;
@@ -39,14 +42,12 @@ public class Game {
                     }
                 }}} return null; }
 
-
     public Boolean up() {
         int x = getPos(4,'x');
         int y = getPos(4,'y');
         if ((y-1) >= 0) {
             grid[y][x] = grid[y-1][x];
             grid[y-1][x] = 4;
-            //printGrid();
             return true;
         }
         return false;
@@ -57,7 +58,6 @@ public class Game {
         if ((y+1) <= 3) {
             grid[y][x] = grid[y+1][x];
             grid[y+1][x] = 4;
-            //printGrid();
             return true;
         }
         return false;
@@ -68,7 +68,6 @@ public class Game {
         if ((x+1) <= 3) {
             grid[y][x] = grid[y][x+1];
             grid[y][x+1] = 4;
-            //printGrid();
             return true;
         }
         return false;
@@ -79,10 +78,49 @@ public class Game {
         if ((x-1) >= 0) {
             grid[y][x] = grid[y][x-1];
             grid[y][x-1] = 4;
-            //printGrid();
             return true;
         }
         return false;
     }
 
+    public Boolean up(int counter) {
+        int x = getPos(counter,'x');
+        int y = getPos(counter,'y');
+        if ((y-1) >= 0) {
+            grid[y][x] = grid[y-1][x];
+            grid[y-1][x] = counter;
+            return true;
+        }
+        return false;
+    }
+    public Boolean down(int counter) {
+        int x = getPos(counter,'x');
+        int y = getPos(counter,'y');
+        if ((y+1) <= 3) {
+            grid[y][x] = grid[y+1][x];
+            grid[y+1][x] = counter;
+            return true;
+        }
+        return false;
+    }
+    public Boolean right(int counter) {
+        int x = getPos(counter,'x');
+        int y = getPos(counter,'y');
+        if ((x+1) <= 3) {
+            grid[y][x] = grid[y][x+1];
+            grid[y][x+1] = counter;
+            return true;
+        }
+        return false;
+    }
+    public Boolean left(int counter) {
+        int x = getPos(counter,'x');
+        int y = getPos(counter,'y');
+        if ((x-1) >= 0) {
+            grid[y][x] = grid[y][x-1];
+            grid[y][x-1] = counter;
+            return true;
+        }
+        return false;
+    }
 }

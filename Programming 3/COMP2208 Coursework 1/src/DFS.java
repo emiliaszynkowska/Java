@@ -11,7 +11,6 @@ public class DFS extends Search {
 
     public Boolean solve(Node current) {
         checkReachedGoal(current);
-        System.out.println(tree.findPosition(current));
         if (!(current.stringChildren.contains("up"))) {
             game.set(decodeArray(game, current.getGrid()));
             if(game.up() == true) {
@@ -46,6 +45,14 @@ public class DFS extends Search {
                 newNode.setGrid(copyArray(game.grid));
                 counter ++;
                 solve(newNode);
+            }
+        }
+        else {
+            try {
+                solve(current.getParent());
+            }
+            catch (NullPointerException n) {
+                System.out.println("Search failed");
             }
         }
         return false;

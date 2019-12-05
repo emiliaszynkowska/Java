@@ -1,11 +1,18 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MyTree {
+public class Tree {
 
     Node root;
 
-    public MyTree() {
+    public Node getRoot() {
+        return root;
+    }
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
+    public Tree() {
         root = new Node("start", null);
     }
 

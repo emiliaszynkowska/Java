@@ -1,16 +1,37 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Search {
 
     Game game;
-    MyTree tree;
+    Tree tree;
     int counter;
     boolean print;
 
+    public Game getGame() {
+        return game;
+    }
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    public Tree getTree() {
+        return tree;
+    }
+    public int getCounter() {
+        return counter;
+    }
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+    public Boolean getPrint() {
+        return this.print;
+    }
+    public void setPrint(boolean print) {
+        this.print = print;
+    }
+
     public Search() {
         game = new Game();
-        tree = new MyTree();
+        tree = new Tree();
         counter = 0;
         print = false;
         tree.root.setGrid(copyArray(game.grid));
@@ -23,6 +44,8 @@ public class Search {
         }
         if (game.reachedGoal()) {
             System.out.println("Solution reached");
+            System.out.println(tree.findPosition(node));
+            game.printGrid();
             System.out.println("Nodes explored: " + counter);
             System.exit(0);
         }

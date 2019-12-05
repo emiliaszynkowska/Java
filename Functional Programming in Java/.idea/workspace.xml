@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10e064b0-bb1d-4d1f-9327-b1b451828e39" name="Default Changelist" comment="" />
+    <list default="true" id="0600a864-7748-465b-9192-02ddf0bc20fe" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,12 +18,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1U3vjAUyrkzyB0kIbcsJHvMkUUA" />
+  <component name="ProjectId" id="1UTlwuv97KxVXm9Lpf0xiasYXpX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -37,39 +36,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Test" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scratch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Scratch" />
-      <module name="Test" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Scratch" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10e064b0-bb1d-4d1f-9327-b1b451828e39" name="Default Changelist" comment="" />
-      <created>1574598225867</created>
+      <changelist id="0600a864-7748-465b-9192-02ddf0bc20fe" name="Default Changelist" comment="" />
+      <created>1575388707634</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574598225867</updated>
-      <workItem from="1574598229349" duration="2331000" />
+      <updated>1575388707634</updated>
+      <workItem from="1575388711883" duration="2008000" />
     </task>
     <servers />
   </component>
