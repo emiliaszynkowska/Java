@@ -47,7 +47,7 @@ public class Coordinator {
         participantsList = new ArrayList<>();
         long longTime = System.currentTimeMillis();
         int intTime = (int) longTime;
-        CoordinatorLogger.initLogger(lport,intTime,timeout);
+        CoordinatorLogger.initLogger(lport,port,timeout);
         run();
     }
 

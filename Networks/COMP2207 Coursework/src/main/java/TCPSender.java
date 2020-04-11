@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class TCPSender implements Runnable {
     private Participant parent;
     private ArrayList<Integer> ports;
-    private HashMap<String,Boolean> votesToSend;
+    private ArrayList<Vote> votesToSend;
     private Socket sendSocket;
     PrintWriter out;
     BufferedReader in;
@@ -31,39 +31,32 @@ public class TCPSender implements Runnable {
             while(true) {
                 try {
                     // Update the HashMap of votesToSend
-                    this.votesToSend = (HashMap<String,Boolean>) parent.getVotesToSend().clone();
+                    this.votesToSend = (ArrayList<Vote>) parent.getVotesToSend().clone();
                     break;
                 } catch (ConcurrentModificationException c) {}
             }
-            // Send a vote to the other participants
+
+            // Create the vote message
             for (Integer port : ports) {
-                for (String vote : votesToSend.keySet()) {
-                    if (votesToSend.get(vote) == false) {
-                        Boolean sent = false;
-                        while (!sent) {
-                            try {
-                                ServerSocket sendServerSocket = new ServerSocket(port);
-                                sendSocket = sendServerSocket.accept();
-                                out = new PrintWriter(sendSocket.getOutputStream(), true);
-                                // Send as a String
-                                out.println(vote);
-                                // Send as a Vote object
-                                out.println("VOTE_OBJECT " + port + " " + vote);
-                                out.close();
-                                sendSocket.close();
-                                votesToSend.replace(vote,true);
-                                if (parent.getVotesSent().containsKey(port)) {
-                                    parent.getVotesSent().get(port).add(new Vote(port, vote));
-                                } else {
-                                    ArrayList<Vote> votes = new ArrayList<>();
-                                    votes.add(new Vote(port,vote));
-                                    parent.getVotesSent().put(port,votes);
-                                }
-                                ParticipantLogger.getLogger().messageSent(port,vote);
-                                sent = true;
-                            } catch (IOException e) {}
-                        }
-                    }
+                String message = "VOTE ";
+                for (Vote vote : votesToSend) {
+                    message += vote.getParticipantPort() + " " + vote.getVote() + " ";
+                }
+
+                // Send a vote to the other participants
+                Boolean sent = false;
+                while (!sent) {
+                    try {
+                        ServerSocket sendServerSocket = new ServerSocket(port);
+                        sendSocket = sendServerSocket.accept();
+                        out = new PrintWriter(sendSocket.getOutputStream(), true);
+                        out.println(message);
+                        out.close();
+                        sendSocket.close();
+                        parent.getVotesSent().addAll(votesToSend);
+                        ParticipantLogger.getLogger().votesSent(port,votesToSend);
+                        sent = true;
+                    } catch (IOException e) {}
                 }
             }
         }

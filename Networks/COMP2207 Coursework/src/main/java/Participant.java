@@ -1,7 +1,11 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Participant {
 
@@ -11,22 +15,21 @@ public class Participant {
     private int timeout;
     private ArrayList<Integer> participants;
     private ArrayList<String> options;
-    private HashMap<Integer,String> votes;
-    private ArrayList<String> numberOfVotesReceived;
-    private Map<Integer,ArrayList<Vote>> votesReceived;
-    private Map<Integer,ArrayList<Vote>> votesSent;
-    private HashMap<String,Boolean> votesToSend;
+    private int numberOfVotesReceived;
+    private ArrayList<Vote> votesReceived;
+    private ArrayList<Vote> votesSent;
+    private ArrayList<Vote> votesToSend;
+    private Map.Entry<ArrayList<Vote>, Long> outcome;
     private Socket clientSocket;
     PrintWriter out;
     BufferedReader in;
 
-    public HashMap<Integer, String> getVotes() {
-        return votes;
-    }
-    public synchronized ArrayList<String> getNumberOfVotesReceived() { return numberOfVotesReceived; }
-    public synchronized Map<Integer,ArrayList<Vote>> getVotesReceived() { return votesReceived; }
-    public synchronized Map<Integer,ArrayList<Vote>> getVotesSent() { return votesSent; }
-    public synchronized HashMap<String,Boolean> getVotesToSend() { return votesToSend; }
+    public synchronized int getNumberOfVotesReceived() { return numberOfVotesReceived; }
+    public synchronized void setNumberOfVotesReceived() { numberOfVotesReceived++; }
+    public synchronized ArrayList<Vote> getVotesReceived() { return votesReceived; }
+    public synchronized ArrayList<Vote> getVotesSent() { return votesSent; }
+    public synchronized ArrayList<Vote> getVotesToSend() { return votesToSend; }
+    public synchronized void setOutcome(Map.Entry<ArrayList<Vote>, Long> outcome) { this.outcome = outcome; }
 
     /*
     Get arguments <cport> <lport> <pport> <timeout>
@@ -41,21 +44,19 @@ public class Participant {
     Initialise global variables
     Initialise the ParticipantLogger class
      */
-    public Participant(int cport, int lport, int pport, int timeout) throws IOException, InterruptedException {
+    public Participant(int cport, int lport, int pport, int timeout) throws IOException {
         this.cport = cport;
         this.lport = lport;
         this.pport = pport;
         this.timeout= timeout;
         participants = new ArrayList<>();
         options = new ArrayList<>();
-        votes = new HashMap<>();
-        numberOfVotesReceived = new ArrayList<>();
-        votesReceived = new HashMap<>();
-        votesSent = new HashMap<>();
-        votesToSend = new HashMap<>();
+        votesReceived = new ArrayList<>();
+        votesSent = new ArrayList<>();
+        votesToSend = new ArrayList<>();
         long longTime = System.currentTimeMillis();
         int intTime = (int) longTime;
-        ParticipantLogger.initLogger(lport,intTime,timeout);
+        ParticipantLogger.initLogger(lport,pport,timeout);
         run();
     }
 
@@ -67,11 +68,10 @@ public class Participant {
     Vote with other participants
     Send the outcome to the coordinator
      */
-    public void run() throws InterruptedException {
+    public void run() {
         Boolean success = false;
         while(!success) {
             try {
-                Thread.sleep(1000);
                 newSocket(cport);
                 out = new PrintWriter(clientSocket.getOutputStream());
                 String message = "JOIN " + pport;
@@ -80,11 +80,11 @@ public class Participant {
                 out.close();
                 clientSocket.close();
                 success = true;
-            } catch (IOException e) {
+                Thread.sleep(1000);
+            } catch (Exception e) {
                 System.out.println("Connection failed. Retrying...");
             }
         }
-            Thread.sleep(timeout);
             getDetails();
             getOptions();
             vote();
@@ -94,7 +94,7 @@ public class Participant {
     /*
     Get details of other participants as DETAILS [<port>]
      */
-    private void getDetails() throws InterruptedException {
+    private void getDetails() {
         Boolean received = false;
         while (!received) {
             try {
@@ -111,16 +111,16 @@ public class Participant {
                 }
                 in.close();
                 clientSocket.close();
-            } catch (IOException e) {}
+                Thread.sleep(1000);
+            } catch (Exception e) {}
         }
         ParticipantLogger.getLogger().detailsReceived(participants);
-        Thread.sleep(1000);
     }
 
     /*
     Get vote options from the coordinator as VOTE_OPTIONS [<option>]
      */
-    public void getOptions() throws InterruptedException {
+    public void getOptions() {
         Boolean received = false;
         while (!received) {
             try {
@@ -137,10 +137,10 @@ public class Participant {
                 }
                 in.close();
                 clientSocket.close();
-            } catch (IOException e) {}
+                Thread.sleep(1000);
+            } catch (Exception e) {}
         }
         ParticipantLogger.getLogger().voteOptionsReceived(options);
-        Thread.sleep(1000);
     }
 
     /*
@@ -149,18 +149,15 @@ public class Participant {
     public String decideInitialVote() {
         Random random = new Random();
         String vote = options.get(random.nextInt(options.size()-1));
-        votes.put(pport,vote);
+        votesToSend.add(new Vote(pport,vote));
         return vote;
     }
 
     /*
     Send votes to other participants as the byte stream VOTE <port> <vote>
      */
-    public void vote() throws InterruptedException {
-        String vote = decideInitialVote();
-
-        // Decide which votes need to be sent
-        votesToSend.put(("VOTE " + pport + " " + vote),false);
+    public void vote() {
+        decideInitialVote();
 
         ArrayList<Integer> ports = new ArrayList<>();
         for (Integer participant : participants) {
@@ -183,9 +180,9 @@ public class Participant {
             // Add unsent votes to votesToSend
             while(true) {
                 try {
-                    for (String receivedVote : numberOfVotesReceived) {
-                        if (!(votesToSend.containsKey(receivedVote))) {
-                            votesToSend.put(receivedVote,false);
+                    for (Vote receivedVote : votesReceived) {
+                        if (!(votesToSend.contains(receivedVote))) {
+                            votesToSend.add(receivedVote);
                         }
                     }
                     break;
@@ -193,66 +190,42 @@ public class Participant {
             }
 
             // Clear votes for the next round
-            numberOfVotesReceived.clear();
-            // Reset counter for the next round
-            int counter = 0;
+            numberOfVotesReceived = 0;
 
             // Receive votes until the correct number of votes have been received
-            while (numberOfVotesReceived.size() < participants.size()-1) {
-                Thread.sleep(3000);
-                counter += 3;
-                if(counter > 10) {
-                    break;
-                }
+            while (numberOfVotesReceived < participants.size()-1) {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {}
             }
 
             ParticipantLogger.getLogger().endRound(i+1);
         }
         receiveThread.stop();
         sendThread.stop();
-
-        for (Map.Entry<Integer,ArrayList<Vote>> i : votesReceived.entrySet()) {
-            ParticipantLogger.getLogger().votesReceived(i.getKey(),i.getValue());
-        }
-        for (Map.Entry<Integer,ArrayList<Vote>> j : votesSent.entrySet()) {
-            ParticipantLogger.getLogger().votesSent(j.getKey(),j.getValue());
-        }
     }
 
     /*
     Send the outcome to the coordinator as the byte stream OUTCOME <outcome> [<port>]
      */
     public void outcome() {
-        // Select the majority vote
-        HashMap<String,Integer> outcomes = new HashMap<>();
-        for (Map.Entry entry : votes.entrySet()) {
-            if (!(outcomes.containsValue(entry.getValue()))) {
-                outcomes.put((String) entry.getValue(), 1);
-            } else {
-                for (String key : outcomes.keySet()) {
-                    if (key.equals(entry.getValue())) {
-                        outcomes.replace(key,outcomes.get(key)+1);
-                    }
-                }
-            }
-        }
-        String outcome = Collections.max(outcomes.entrySet(), Map.Entry.comparingByValue()).getKey();
-        ParticipantLogger.getLogger().outcomeDecided(outcome);
-
-        // Decide which participant is the sender of this vote
-        String participantsString = "";
-        for (int participant : participants) {
-            participantsString += participant;
-            participantsString += " ";
-        }
+        Stream.of(votesReceived)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparing(Map.Entry::getValue))
+                .ifPresent(this::setOutcome);
+        String output = outcome.getKey().get(0).getVote();
+        int sender = outcome.getKey().get(0).getParticipantPort();
+        ParticipantLogger.getLogger().outcomeDecided(output);
 
         // Send the outcome to the coordinator
-        String output = "OUTCOME " + outcome + " " + participantsString;
+        String message = "OUTCOME " + outcome + " " + sender;
         try {
             newSocket(cport);
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             out.write(output, 0, output.length());
-            ParticipantLogger.getLogger().outcomeNotified(outcome);
+            ParticipantLogger.getLogger().outcomeNotified(output);
             out.close();
             clientSocket.close();
         } catch (IOException e) {}

@@ -32,45 +32,27 @@ public class TCPReceiver implements Runnable {
         while(true) {
             try {
                 // Receive a vote
-                // Votes can be received as a String or a Vote object
-                // This is because Participants take String objects, and the ParticipantLogger takes Vote objects
                 receiveSocket = new Socket(InetAddress.getLocalHost(), port);
                 in = new BufferedReader(new InputStreamReader(receiveSocket.getInputStream()));
                 String message = in.readLine().trim();
 
                 // Receive a vote as a string
                 // Add the vote to the votes HashMap if not added already
-                if (message != null && message.contains("VOTE") && !(parent.getNumberOfVotesReceived().contains(message))) {
+                if (message != null && message.contains("VOTE") && !(parent.getVotesReceived().contains(message))) {
                 String[] messageSplit = message.split(" ");
+                ArrayList<Vote> votes = new ArrayList<>();
                     for (int i=1; i<messageSplit.length; i+=2) {
                         while(true) {
                             try {
-                                parent.getVotes().put(Integer.valueOf(messageSplit[i]), messageSplit[i+1]);
+                                Vote voteReceived = new Vote(Integer.valueOf(messageSplit[1]),messageSplit[i+1]);
+                                votes.add(voteReceived);
+                                parent.getVotesReceived().add(voteReceived);
                                 break;
                             } catch (ConcurrentModificationException c) {}
                         }
                     }
-                    parent.getNumberOfVotesReceived().add(message);
-                }
-
-                // Receive a vote as a Vote object
-                // Add the vote to the votesReceived HashMap
-                else if (message != null && message.contains("VOTE_OBJECT")) {
-                    String[] messageSplit = message.split(" ");
-                    Integer sender = Integer.parseInt(messageSplit[1]);
-                    String vote = "";
-                    for (int i=2; i<messageSplit.length; i++) {
-                        vote += messageSplit[i];
-                        vote += " ";
-                    }
-                    if (parent.getVotesReceived().containsKey(sender)) {
-                        parent.getVotesReceived().get(sender).add(new Vote(sender, vote.trim()));
-                    } else {
-                        ArrayList<Vote> votes = new ArrayList<>();
-                        votes.add(new Vote(port,vote));
-                        parent.getVotesReceived().put(sender,votes);
-                    }
-                    ParticipantLogger.getLogger().messageReceived(sender, vote);
+                    parent.setNumberOfVotesReceived();
+                    ParticipantLogger.getLogger().votesReceived(Integer.valueOf(messageSplit[1]),votes);
                 }
                 in.close();
                 receiveSocket.close();
