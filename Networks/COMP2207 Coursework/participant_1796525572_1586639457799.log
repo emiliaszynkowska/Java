@@ -1,0 +1,39 @@
+[P1796525572] connection established to port 5000
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@153f5a29
+[P1796525572] JOIN sent to Coordinator on port 5000
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@6574b225
+[P1796525572] connection established to port 6000
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@5afa04c
+[P1796525572] started listening on port 1796525572
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@6ea12c19
+[P1796525572] received participant ports: 6000, 7000, 8000
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@7c0e2abd
+[P1796525572] connection established to port 6000
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@48eff760
+[P1796525572] started listening on port 1796525572
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@402f32ff
+[P1796525572] received vote options: A, B, C
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@5ae9a829
+[P1796525572] begin round 1
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@7ac7a4e4
+[P1796525572] message sent to 7000: "VOTE 6000 B"
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@75fe054f
+[P1796525572] message sent to 7000: "VOTE 6000 B"
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@18d888fd
+[P1796525572] end round 1
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@6d78f375
+[P1796525572] begin round 2
+[P1796525572] Exception caught: null
+[P1796525572] Stack trace: [Ljava.lang.StackTraceElement;@50c87b21
